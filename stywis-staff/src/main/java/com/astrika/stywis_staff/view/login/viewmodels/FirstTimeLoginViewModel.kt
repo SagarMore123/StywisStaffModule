@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +22,6 @@ import com.astrika.stywis_staff.source.user.UserRepository
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.ErrorCheckUtils
 import com.astrika.stywis_staff.utils.GenericBaseObservable
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.messaging.FirebaseMessaging
 
 class FirstTimeLoginViewModel : GenericBaseObservable {
 
@@ -52,8 +49,9 @@ class FirstTimeLoginViewModel : GenericBaseObservable {
         this.activity = activity
         this.userRepository = userRepository
         sharedPreferences = Constants.getSharedPreferences(application)
-        getFireBaseInstanceId()
+//        getFireBaseInstanceId()
     }
+/*
 
     private fun getFireBaseInstanceId() {
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
@@ -72,6 +70,7 @@ class FirstTimeLoginViewModel : GenericBaseObservable {
 //            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
         })
     }
+*/
 
     fun onSignUpClick() {
 //        Constants.changeActivity<SignUpActivity>(activity)

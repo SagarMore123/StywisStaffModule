@@ -71,7 +71,7 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        binding.navigationMenu.versionNameTxt.text = "Version " + BuildConfig.VERSION_NAME + " "
+//        binding.navigationMenu.versionNameTxt.text = "Version " + BuildConfig.VERSION_NAME + " "
 
 //        Log.e("Crispminds Psw",Constants.passwordEncrypt("Nitinz@123"))
 
