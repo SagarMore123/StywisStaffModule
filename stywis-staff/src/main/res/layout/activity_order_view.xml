@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.menus.viewmodels.OrderReviewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/title_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:paddingBottom="5dp"
+            android:text="@{viewModel.displayTableNos != null ? `Order for Table `+ viewModel.displayTableNos : ``}"
+            android:textColor="@color/colorWhite"
+            android:textSize="16dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Order for Table 5A" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circular_top_rounded_corner_white_background"
+            app:layout_constraintBottom_toTopOf="@+id/confirm_order_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_text_view">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:paddingStart="20dp"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="50dp">
+
+                <TextView
+                    android:id="@+id/order_review_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="Order Review"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/order_review_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/order_review_text_view"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <RelativeLayout
+                    android:id="@+id/discount_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@+id/order_review_recycler"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/grey_background_with_grey_stroke">
+
+                    <ImageView
+                        android:id="@+id/discount_image_view"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/ic_apply_discount" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@id/discount_image_view"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="View Discounts &amp; Complimentary"
+                        android:textColor="@color/colorBlack" />
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="15dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_arrow_right" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/discount_layout"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/grey_background_with_grey_stroke">
+
+                    <TextView
+                        android:id="@+id/bill_details_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="Bill Details"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:id="@+id/order_details_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bill_details_text_view"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@string/order_details"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/order_details_price_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/bill_details_text_view"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{`₹ ` + viewModel.totalOrderPrice}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11dp"
+                        tools:text="₹ 134" />
+
+                    <TextView
+                        android:id="@+id/discount_applicable_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/order_details_text_view"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@string/discount_applicable"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/order_details_text_view"
+                        android:layout_toEndOf="@id/discount_applicable_text_view"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_information" />
+
+                    <TextView
+                        android:id="@+id/discount_Applicable_price_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/order_details_price_text_view"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{`₹ ` + viewModel.discountPrice}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11dp"
+                        tools:text="₹ 134" />
+
+                    <View
+                        android:id="@+id/divider_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/discount_applicable_text_view"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="7dp"
+                        android:background="@color/random_light_grey" />
+
+                    <TextView
+                        android:id="@+id/tax_and_charges_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider_1"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@string/tax_and_charges"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11dp" />
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_below="@id/divider_1"
+                        android:layout_toEndOf="@id/tax_and_charges_text_view"
+                        android:gravity="center_vertical"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_information" />
+
+                    <TextView
+                        android:id="@+id/tax_and_charges_price_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider_1"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:gravity="end"
+                        android:text="@{`₹ ` + viewModel.taxAndCharges}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="11dp"
+                        tools:text="₹  45" />
+
+                    <View
+                        android:id="@+id/divider_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_below="@id/tax_and_charges_text_view"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="7dp"
+                        android:background="@color/random_light_grey" />
+
+                    <TextView
+                        android:id="@+id/to_pay_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/divider_2"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@string/to_pay"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="11dp" />
+
+                    <TextView
+                        android:id="@+id/to_pay_price_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/divider_2"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="50dp"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{`₹ ` + viewModel.toPayableAmount}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="11dp"
+                        tools:text="₹ 472" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/confirm_order_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/orange"
+            android:visibility="@{viewModel.isViewOrder ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="@{viewModel.quantityPriceMutable}"
+                android:textColor="@color/colorBlack"
+                tools:text="4 Item  |  ₹ 527" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                android:onClick="@{()-> viewModel.onConfirmOrderClick()}"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:text="@string/confirm_order"
+                android:textAllCaps="false"
+                android:textColor="@color/colorWhite" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

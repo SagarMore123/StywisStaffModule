@@ -1,0 +1,86 @@
+<resources>
+    <string name="app_name">Stywis Staff</string>
+
+    <string name="keyboard_validation">qwertyuiopasdfghjklzxcvbnm 1234567890 QWERTYUIOPASDFGHJKLZXCVBNM !@#$%^&amp;*()_+=-{}[]|\/.,:;"'</string>
+    <string name="keyboard_validation_wo_sp_char">qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM</string>
+    <string name="keyboard_validation_only_numbers">1234567890</string>
+    <string name="keyboard_validation_phone_country_code">+1234567890</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+
+    <string name="network_failure_string">Connection to server failed. Please retry</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rupee_string">\u20B9</string>
+
+    <string name="search_dish">Search Dish</string>
+    <string name="apply_discount_and_complementary">Apply Discounts and Complimentary</string>
+    <string name="order_details">Order Details</string>
+    <string name="discount_applicable">Discount Applicable</string>
+    <string name="tax_and_charges">Tax and Charges</string>
+    <string name="to_pay">To Pay</string>
+    <string name="confirm_order">Confirm Order</string>
+    <string name="preview_order">Preview Order</string>
+    <string name="payment_mode">Payment Mode</string>
+    <string name="check_out">Check Out</string>
+
+    <string name="reject_checkIn_alert_message">Are you sure, do you want to reject this checkIn?</string>
+    <string name="already_login_message">This user is logged into another device.\n\n Do you wish to login into this device?</string>
+    <string name="please_login_to_your_account">Please login to your account by providing the registered
+        email address or the Login ID</string>
+    <string name="input_the_otp_that_has_been_sent">Input the OTP that has been sent on the registered
+        email address</string>
+    <string name="input_the_otp_that_has_been_sent_to_mobile">Input the OTP that has been sent on the registered
+        mobile number</string>
+    <string name="set_a_strong_password">Set a strong password to access
+        your account to avoid OTP each time</string>
+    <string name="enter_the_password_set_earlier">Enter the password you had set earlier for
+        this user account</string>
+    <string name="do_you_want_to_logout">Are you sure you want to logout ?</string>
+    <string name="is_payment_done">Is Payment Done ?</string>
+    <string name="remove_customized_product">This item has multiple customizations added. Proceed to cart to remove item ?</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="false">fcm_default_channel_name</string>
+
+    <string name="dashboard_string">Dashboard</string>
+    <string name="show_all_tables">Show All Tables</string>
+    <string name="show_my_tables">Show My Tables</string>
+
+
+    <string-array name="names">
+        <!--        <item>Today\'s List</item>-->
+        <item>CheckIns</item>
+        <item>Products Ordered</item>
+        <item>Bill Requests</item>
+        <!--        <item>All Lists</item>-->
+        <item></item>
+    </string-array>
+
+
+    <string name="dish_availability">Dish Availability</string>
+    <string name="update_menu">Update Menu</string>
+    <string name="dish_name">Dish Name</string>
+    <string name="price">Price</string>
+    <string name="stock">Stock</string>
+
+    <string name="awaiting_requests">Awaiting CheckIn Requests (%d)</string>
+    <string name="title_activity_order_review">OrderReviewActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="customization">Customization</string>
+    <string name="customization_application">Customization Application</string>
+    <string name="option">Options</string>
+    <string name="addons">Addons</string>
+    <string name="rupee_symbol">₹</string>
+</resources>

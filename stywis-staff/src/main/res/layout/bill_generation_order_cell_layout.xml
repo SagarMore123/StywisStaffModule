@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="orderDTO"
+            type="com.astrika.stywis_staff.models.OrderDTO" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/section_name_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/air_bnb_cereal_book"
+            android:gravity="center_vertical"
+            android:text="@{`Order ` + (orderDTO.orderId == null ? `0` :orderDTO.orderId)}"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Order 1" />
+
+        <ImageView
+            android:id="@+id/expand_image_view"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_arrow_up_dashboard"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/random_grey_1"
+            app:layout_constraintBottom_toTopOf="@id/dish_recycler_view"
+            app:layout_constraintTop_toBottomOf="@id/section_name_text_view" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dish_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

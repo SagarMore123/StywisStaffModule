@@ -1,0 +1,160 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <!--        <item name="android:windowLightStatusBar">true</item>-->
+        <!--        <item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!-- Make status bar icons colour black -->
+        <!--<item name="android:textColorSecondary">@android:color/white</item>-->
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+    </style>
+
+    <style name="MyCustomTheme" parent="Theme.AppCompat.Light.Dialog.Alert">>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="CustomProgressBarTheme">
+
+        <!--        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>-->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
+
+
+    <style name="TextLabel" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="TextInputLayoutCommonStyle" parent="TextAppearance.Design.Hint">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="fontFamily">@font/air_bnb_cereal_book</item>
+        <!--        <item name="hintTextAppearance">@style/TextLabel</item>-->
+
+    </style>
+
+
+    <style name="EditTextCommonStyle">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="fontFamily">@font/air_bnb_cereal_book</item>
+        <item name="android:textSize">16sp</item>
+
+    </style>
+
+
+    <style name="errorTextStyle">
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorRed</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:fontFamily">@font/air_bnb_cereal_book</item>
+
+    </style>
+
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="BasicInfoRecyclerViewStyle">
+
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:paddingStart">5dp</item>
+        <item name="android:paddingEnd">5dp</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:overScrollMode">never</item>
+        <item name="layoutManager">androidx.recyclerview.widget.GridLayoutManager</item>
+        <item name="spanCount">2</item>
+    </style>
+
+    <style name="AirBnbFontTextAppearance">
+        <item name="android:fontFamily">@font/air_bnb_cereal_medium</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
+
+    <style name="Theme.CommonDialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--        <item name="android:background">@android:color/white</item>-->
+        <item name="windowNoTitle">true</item>
+        <item name="android:colorControlNormal">@color/colorAccent</item>
+        <item name="android:windowBackground">
+            @drawable/circular_rounded_corner_10dp_white_background
+        </item>
+
+    </style>
+
+    <style name="ImageViewLogo">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginTop">32dp</item>
+        <item name="srcCompat">@drawable/stywiz_dark_logo</item>
+    </style>
+
+    <style name="HeaderLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">
+            @drawable/circular_rounded_corner_white_background_with_accent_stroke
+        </item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+    </style>
+
+    <style name="HeaderTextStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:fontFamily">@font/air_bnb_cereal_medium</item>
+    </style>
+
+    <style name="HeaderArrowImageStyle">
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
+
+    </style>
+
+
+    <style name="RoundedCornersDialog" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="dialogCornerRadius">15dp</item>
+    </style>
+
+</resources>

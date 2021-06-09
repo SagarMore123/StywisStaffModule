@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.dashboard.viewmodels.WishListViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="Wish List Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.closeDialog()}"
+                android:src="@drawable/ic_close"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/greyView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/headerLayout"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/light_grey" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/wishListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/greyView"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.noWishListItemsFound ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        <TextView
+            android:id="@+id/noItemsFound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/greyView"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:gravity="center"
+            android:text="No Items Found"
+            android:visibility="@{viewModel.noWishListItemsFound ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+
+</layout>

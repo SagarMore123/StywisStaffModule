@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.stockmanagement.viewmodels.StockCustomizationViewModel" />
+
+        <variable
+            name="menuDishDetails"
+            type="com.astrika.stywis_staff.models.menu.DishDetailsDTO" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/grey_background"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/veg_non_veg_image_view"
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@drawable/circular_green_background" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="@{menuDishDetails.productName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"
+                        tools:text="Product Name" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:gravity="center_vertical"
+                    android:text="@{menuDishDetails.productDesc}"
+                    tools:text="Product Description" />
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="@{`₹ ` + viewModel.displayDishPrice}"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                tools:text="₹ 143" />
+
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <!-- Options -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{viewModel.customizationOptionsLiveList.empty ? View.GONE : View.VISIBLE}">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="@{viewModel.isCustomizable ? View.VISIBLE : View.GONE}">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Select : "
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/EditTextCommonStyle"
+                                        android:layout_width="match_parent"
+                                        android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                                        android:drawablePadding="5dp"
+                                        android:focusable="false"
+                                        android:hint="Select"
+                                        android:onClick="@{()->viewModel.onStockCustomizationOptionClick()}"
+                                        android:singleLine="true"
+                                        android:text="@{viewModel.stockCustomizationOption}"
+                                        tools:text="250 gm" />
+                                </LinearLayout>
+
+                                <TextView
+                                    style="@style/errorTextStyle"
+                                    activity="@{viewModel.activity}"
+                                    errorText="@{viewModel.stockCustomizationOptionError}" />
+
+                            </LinearLayout>
+
+                            <Space
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Quantity : "
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        style="@style/EditTextCommonStyle"
+                                        android:layout_width="70dp"
+                                        android:digits="@string/keyboard_validation_only_numbers"
+                                        android:gravity="center"
+                                        android:hint="0"
+                                        android:inputType="number"
+                                        android:maxLength="3"
+                                        android:singleLine="true"
+                                        android:text="@={viewModel.stockCustomizationOptionQuantity}"
+                                        tools:text="0" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Nos."
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+                                <TextView
+                                    style="@style/errorTextStyle"
+                                    activity="@{viewModel.activity}"
+                                    errorText="@{viewModel.quantityError}" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/rounded_corner_white_background_with_btn_color_stroke"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:onClick="@{()-> viewModel.onAddClick()}"
+                            android:paddingStart="15dp"
+                            android:paddingTop="5dp"
+                            android:paddingEnd="15dp"
+                            android:paddingBottom="5dp"
+                            android:text="Add"
+                            android:textAllCaps="false"
+                            android:textColor="@color/btn_color"
+                            android:visibility="@{viewModel.isCustomizable ? View.VISIBLE : View.GONE}" />
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/grey" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/optionsRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="vertical"
+                            android:visibility="@{viewModel.isCustomizable ? View.VISIBLE : View.GONE}"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/btn_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="end"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/takeOrderBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/rectangular_button_drawable"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:onClick="@{()-> viewModel.onCancelClick()}"
+                            android:text="Cancel"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="12dp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/generateBillBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/rectangular_button_drawable"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:onClick="@{()-> viewModel.onSaveClick()}"
+                            android:text="Save"
+                            android:textAllCaps="false"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="12dp" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dishDetails"
+            type="com.astrika.stywis_staff.models.OrderProductDetails" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/veg_non_veg_image_view"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_marginTop="7dp"
+            android:background="@drawable/circular_green_background"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dish_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="@{dishDetails.productName}"
+                android:textColor="@color/colorBlack"
+                android:textSize="16dp"
+                app:layout_constraintStart_toEndOf="@+id/veg_non_veg_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Tomato Omlette" />
+
+            <TextView
+                android:id="@+id/customized_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:textSize="12dp"
+                app:layout_constraintStart_toEndOf="@id/veg_non_veg_image_view"
+                app:layout_constraintTop_toBottomOf="@id/dish_price_text_view"
+                tools:text="Extra Cheese, Orange Juice" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/view_quantity_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="@{`Quantity : ` + dishDetails.quantity.toString()}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="@id/total_price_text_view"
+                app:layout_constraintEnd_toStartOf="@id/total_price_text_view"
+                tools:text="Quantity : 1" />
+
+
+            <TextView
+                android:id="@+id/total_price_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="₹ 134" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/veg_non_veg_image_view"
+                android:layout_width="6dp"
+                android:layout_height="6dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/circular_green_background"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dish_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="@{dishDetails.productName}"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintStart_toEndOf="@id/veg_non_veg_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Tomato Omlette" />
+
+            <TextView
+                android:id="@+id/dish_price_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                app:layout_constraintStart_toEndOf="@id/veg_non_veg_image_view"
+                app:layout_constraintTop_toBottomOf="@+id/dish_name_text_view"
+                tools:text="₹ 105" />
+
+
+            <TextView
+                android:id="@+id/customized_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                app:layout_constraintStart_toEndOf="@id/veg_non_veg_image_view"
+                app:layout_constraintTop_toBottomOf="@id/dish_price_text_view"
+                tools:text="Extra Cheese, Orange Juice" />
+
+
+            <TextView
+                android:id="@+id/quantity_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="@{dishDetails.quantity.toString()}"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toStartOf="@id/total_price_text_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="1" />
+
+            <TextView
+                android:id="@+id/total_price_text_view"
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="@id/quantity_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/quantity_text_view"
+                tools:text="₹ 134" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    -->
+</layout>

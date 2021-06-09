@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.dashboard.viewmodels.BottomSheetCheckInViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:text="Aalu"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/colorBlack" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="Available" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="Quantity : "
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/quantity_button"
+                android:layout_width="70dp"
+                android:layout_height="25dp"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_corner_white_background_with_red_stroke">
+
+                <ImageView
+                    android:id="@+id/remove_image_view"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_product_remove_24"
+                    app:tint="@color/md_red_500" />
+
+                <TextView
+                    android:id="@+id/quantity_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:text="1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlack" />
+
+                <ImageView
+                    android:id="@+id/add_image_view"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_add"
+                    app:tint="@color/md_red_500" />
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutCommonStyle"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:hint="Kg">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextCommonStyle"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:focusable="false"
+                    android:onClick="@{()->viewModel.onVisitorPurposeClick()}"
+                    android:singleLine="true"
+                    android:text="@{viewModel.visitPurpose}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/errorTextStyle"
+                activity="@{viewModel.activity}"
+                errorText="@{viewModel.visitPurposeError}" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="Pending" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="Quantity : "
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/quantity_button2"
+                android:layout_width="70dp"
+                android:layout_height="25dp"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/rounded_corner_white_background_with_red_stroke">
+
+                <ImageView
+                    android:id="@+id/remove_image_view2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_product_remove_24"
+                    app:tint="@color/md_red_500" />
+
+                <TextView
+                    android:id="@+id/quantity_text_view2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:text="1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorBlack" />
+
+                <ImageView
+                    android:id="@+id/add_image_view2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:padding="3dp"
+                    android:src="@drawable/ic_add"
+                    app:tint="@color/md_red_500" />
+
+            </RelativeLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutCommonStyle"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="10dp"
+                android:hint="Kg">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextCommonStyle"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:focusable="false"
+                    android:onClick="@{()->viewModel.onVisitorPurposeClick()}"
+                    android:singleLine="true"
+                    android:text="@{viewModel.visitPurpose}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/errorTextStyle"
+                activity="@{viewModel.activity}"
+                errorText="@{viewModel.visitPurposeError}" />
+
+
+        </LinearLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/TextInputLayoutCommonStyle"
+            android:layout_marginTop="10dp"
+            android:hint="Notes">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextCommonStyle"
+                android:inputType="text"
+                android:maxLength="70"
+                android:text="@={viewModel.noOfGuest}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            style="@style/errorTextStyle"
+            activity="@{viewModel.activity}"
+            errorText="@{viewModel.noOfGuestError}" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_button_drawable"
+                android:elevation="1dp"
+                android:gravity="center"
+                android:onClick="@{()-> viewModel.onSubmitDetails()}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:gravity="center"
+                    android:text="Cancel"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_button_drawable"
+                android:elevation="1dp"
+                android:gravity="center"
+                android:onClick="@{()-> viewModel.onSubmitDetails()}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:gravity="center"
+                    android:text="Delete"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_button_drawable"
+                android:elevation="1dp"
+                android:gravity="center"
+                android:onClick="@{()-> viewModel.onSubmitDetails()}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:gravity="center"
+                    android:text="Save"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

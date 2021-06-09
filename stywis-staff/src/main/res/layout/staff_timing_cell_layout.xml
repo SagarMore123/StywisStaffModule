@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dto"
+            type="com.astrika.stywis_staff.models.StaffTimingDTO" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:text="@{dto.weekDayName}"
+            android:textColor="@color/colorBlack"
+            tools:text="Monday" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/air_bnb_cereal_book"
+            android:gravity="start"
+            android:text="@{dto.opensAt + ` - `+ dto.closesAt}"
+            android:textColor="@color/colorBlack"
+            tools:text="09:30 AM - 08:30 PM" />
+
+    </LinearLayout>
+
+
+</layout>

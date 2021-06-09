@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5008558628",
+    "firebase_url": "https://cravx-staff-app---checqk.firebaseio.com",
+    "project_id": "cravx-staff-app---checqk",
+    "storage_bucket": "cravx-staff-app---checqk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5008558628:android:5d1caa98106f9a579766b1",
+        "android_client_info": {
+          "package_name": "com.astrika.stywisstaffmodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5008558628-e3qaqkmnjtuv0vn678v4a7vqhuk22uh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOkhNHEaLZNAgCYgAmhIYaW4hUFyskBW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5008558628-e3qaqkmnjtuv0vn678v4a7vqhuk22uh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

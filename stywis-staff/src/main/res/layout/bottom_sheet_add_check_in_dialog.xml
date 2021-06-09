@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.dashboard.viewmodels.BottomSheetCheckInViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Find by Mobile Number Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.viewType == 1 ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="Find by Mobile Number"
+                android:textSize="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginIdLabel"
+                style="@style/TextInputLayoutCommonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Mobile No">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/mobileNumber"
+                    style="@style/EditTextCommonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:singleLine="true"
+                    android:text="@={viewModel.mobileNumber}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="@{viewModel.mobileNumberError}"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="12dp"
+                tools:text="Invalid Number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:onClick="@{()-> viewModel.userDetailsClick()}"
+                android:orientation="horizontal"
+                android:visibility="@{viewModel.userDetailsVisible ? View.VISIBLE : View.INVISIBLE}">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/usr_profile_img"
+                    imageUrl="@{viewModel.profileImagePath}"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_person_placeholder"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="2dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.visitorFirstName+` `+viewModel.visitorLastName}"
+                        tools:text="Vaibhav K" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.visitorMobileNumber}"
+                        tools:text="091-9877547548" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.visitorEmail}"
+                        tools:text="raj.shetty@gmail.com" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/circular_rounded_corner_10dp_white_background_with_primary_stroke"
+                    android:onClick="@{()-> viewModel.onSelectUser()}"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="Select User" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangular_button_drawable"
+                    android:elevation="1dp"
+                    android:gravity="center"
+                    android:onClick="@{()-> viewModel.onFindBtn()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:gravity="center"
+                        android:text="find"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorWhite" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Customer Profile -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.viewType == 2 ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="10dp"
+                    android:onClick="@{()-> viewModel.onBackPressUserDetails()}"
+                    android:src="@drawable/ic_arrow_back_24" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:gravity="center"
+                    android:text="Customer Profile"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    imageUrl="@{viewModel.profileImagePath}"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_person_placeholder"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="@{viewModel.visitorFirstName+` `+viewModel.visitorLastName}"
+                    android:textSize="18dp"
+                    tools:text="Raj Shetty" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="@{viewModel.visitorMobileNumber}"
+                    android:textSize="18dp"
+                    tools:text="+91 9231923912" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/air_bnb_cereal_medium"
+                    android:text="@{viewModel.visitorEmail}"
+                    android:textSize="18dp"
+                    tools:text="raj.shetty@gmail.com" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangular_button_drawable"
+                        android:elevation="1dp"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:gravity="center"
+                            android:text="Take Order"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!-- Add Customer -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.viewType == 3 ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="Add Customer"
+                android:textSize="16dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/firstName"
+                    style="@style/TextInputLayoutCommonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="First Name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/firstNameEt"
+                        style="@style/EditTextCommonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:maxLength="50"
+                        android:singleLine="true"
+                        android:text="@={viewModel.visitorFirstName}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:text="@{viewModel.visitorFirstNameError}"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="12dp"
+                    tools:text="Invalid First Name" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/lastName"
+                    style="@style/TextInputLayoutCommonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Last Name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/lastNameEt"
+                        style="@style/EditTextCommonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapWords"
+                        android:maxLength="50"
+                        android:singleLine="true"
+                        android:text="@={viewModel.visitorLastName}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:text="@{viewModel.visitorLastNameError}"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="12dp"
+                    tools:text="Invalid Last Name" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/mobileNo"
+                    style="@style/TextInputLayoutCommonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Mobile No">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/mobileNoEt"
+                        style="@style/EditTextCommonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:singleLine="true"
+                        android:text="@={viewModel.visitorMobileNumber}"
+                        android:textColor="@color/grey" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:text="@{viewModel.mobileNumberError}"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="12dp"
+                    tools:text="Invalid Mobile Number" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/email"
+                    style="@style/TextInputLayoutCommonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="Email">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEt"
+                        style="@style/EditTextCommonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:maxLength="75"
+                        android:singleLine="true"
+                        android:text="@={viewModel.visitorEmail}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:text="@{viewModel.visitorEmailError}"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="12dp"
+                    tools:text="Invalid Email Id" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangular_button_drawable"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onCancel()}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:gravity="center"
+                            android:text="CANCEL"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangular_button_drawable"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onSave()}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:gravity="center"
+                            android:text="SAVE"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <!-- Verify OTP -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.viewType == 4 ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="Verify OTP"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="@string/input_the_otp_that_has_been_sent_to_mobile"
+                android:textSize="12dp" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/otp"
+                    style="@style/TextInputLayoutCommonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter OTP">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/otpEdit"
+                        style="@style/EditTextCommonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:text="@={viewModel.verifyOtpEditTxt}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/passwordError"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.verifyOtpError}"
+                        android:textColor="@android:color/holo_red_light"
+                        android:textSize="12dp"
+                        android:visibility="@{viewModel.verifyOtpErrorVisibility? View.VISIBLE : View.INVISIBLE}"
+                        tools:text="Incorrect OTP ! Attempt 1 of 3" />
+
+                    <TextView
+                        android:id="@+id/verifyOtpTimerTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.countDownTimer}"
+                        android:textSize="12dp"
+                        android:visibility="@{viewModel.verifyOtpTimerVisibility ? View.VISIBLE : View.INVISIBLE}"
+                        tools:text="09:00" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:onClick="@{()-> viewModel.resendOtp()}"
+                        android:text="Resend OTP"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="12dp"
+                        android:visibility="@{viewModel.verifyOtpTimerVisibility ? View.GONE : View.VISIBLE}" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rectangular_button_drawable"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:onClick="@{()-> viewModel.onVerifyOtpProceed()}">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/air_bnb_cereal_medium"
+                            android:gravity="center"
+                            android:text="Confirm"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite" />
+
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <!-- No. of people & Visit Purpose Layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.viewType == 5 ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/air_bnb_cereal_medium"
+                android:text="Details"
+                android:textSize="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutCommonStyle"
+                android:layout_marginTop="10dp"
+                android:hint="No. of people">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextCommonStyle"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:singleLine="true"
+                    android:text="@={viewModel.noOfGuest}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/errorTextStyle"
+                activity="@{viewModel.activity}"
+                errorText="@{viewModel.noOfGuestError}" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutCommonStyle"
+                android:layout_marginTop="10dp"
+                android:hint="Select Visit Purpose">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditTextCommonStyle"
+                    android:drawableEnd="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    android:drawablePadding="5dp"
+                    android:focusable="false"
+                    android:onClick="@{()->viewModel.onVisitorPurposeClick()}"
+                    android:singleLine="true"
+                    android:text="@{viewModel.visitPurpose}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/errorTextStyle"
+                activity="@{viewModel.activity}"
+                errorText="@{viewModel.visitPurposeError}" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangular_button_drawable"
+                    android:elevation="1dp"
+                    android:gravity="center"
+                    android:onClick="@{()-> viewModel.onSubmitDetails()}">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:gravity="center"
+                        android:text="Submit"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorWhite" />
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!--       &lt;!&ndash; Table Setup &ndash;&gt;
+
+               <LinearLayout
+                   android:id="@+id/tableMainLayout"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:visibility="@{viewModel.viewType == 6 ? View.VISIBLE : View.GONE}">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/air_bnb_cereal_medium"
+                       android:text="Select Table"
+                       android:textSize="16dp" />
+
+                   <RelativeLayout
+                       android:id="@+id/tableSetupLayout"
+                       android:layout_width="match_parent"
+                       android:layout_height="400dp"
+                       android:layout_marginTop="10dp"
+                       android:background="@drawable/grey_table_background"
+                       app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                   <Button
+                       android:id="@+id/confirm_check_in_btn"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginBottom="10dp"
+                       android:background="@drawable/rectangular_corner_white_background_with_primary_stroke"
+                       android:fontFamily="@font/air_bnb_cereal_book"
+                       android:onClick="@{()-> viewModel.onConfirmCheckIn()}"
+                       android:text="Confirm\n CheckIn"
+                       android:textAllCaps="false"
+                       android:textColor="@color/colorPrimary"
+                       android:textSize="12dp" />
+
+
+               </LinearLayout>
+       -->
+
+    </LinearLayout>
+
+</layout>

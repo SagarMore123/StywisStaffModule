@@ -1,0 +1,3 @@
+rootProject.name = "Stywis Staff  Module"
+include ':app'
+include ':stywis-staff'

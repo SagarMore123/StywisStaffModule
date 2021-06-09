@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dashboardSubViewModel"
+            type="com.astrika.stywis_staff.view.dashboard.viewmodels.DashboardSubViewModel" />
+
+        <variable
+            name="dashboardViewModel"
+            type="com.astrika.stywis_staff.view.dashboard.viewmodels.DashboardViewModel" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/search_et"
+            style="@style/EditTextCommonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/rectangular_corner_white_background_with_primary_stroke"
+            android:hint="search list by customer"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="@={dashboardSubViewModel.autocompleteText}"
+
+            android:textColorHint="@color/grey" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/checkInListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/awaitingCheckInRequests"
+            android:layout_below="@id/search_et"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            android:gravity="center"
+            android:text="@{dashboardSubViewModel.noDataFound}"
+            android:textSize="16dp"
+            android:visibility="@{dashboardSubViewModel.noDataFoundVisibility ? View.VISIBLE : View.GONE}" />
+
+        <LinearLayout
+            android:id="@+id/awaitingCheckInRequests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:visibility="@{dashboardSubViewModel.awaitingCheckInRequestsVisibility ? View.VISIBLE : View.GONE}">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_button_drawable"
+                android:elevation="1dp"
+                android:gravity="center"
+                android:onClick="@{()->dashboardSubViewModel.onAwaitingRequests()}">
+
+                <TextView
+                    android:id="@+id/checkInRequestsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:gravity="center"
+                    android:text="Awaiting CheckIn Requests"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/rectangular_button_drawable"
+                android:elevation="1dp"
+                android:gravity="center"
+                android:onClick="@{()->dashboardSubViewModel.onAddCheckIn()}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/air_bnb_cereal_book"
+                    android:gravity="center"
+                    android:text="Add CheckIns"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.2" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

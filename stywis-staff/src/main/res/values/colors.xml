@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#cf0f56</color>
+    <color name="colorPrimaryDark">#cf0f56</color>
+    <color name="colorAccent">#1d1d1d</color>
+    <color name="colorDashboardToolbar">#2CD1C1</color>
+    <color name="colorDashboardToolbarLight">#DBFDF9</color>
+    <color name="btn_color">#f88f4e</color>
+
+    <color name="random_grey">#e8e8e8</color>
+    <color name="random_grey_light">#F6F5F5</color>
+    <color name="random_grey_1">#8A8A8A</color>
+    <color name="random_light_grey">#AAA7A7</color>
+    <color name="grey">#8E8C8C</color>
+    <color name="yellow">#FF9800</color>
+    <color name="orange">#fbae5c</color>
+    <color name="colorBlack">#333333</color>
+    <color name="colorDarkBlack">#1d1d1d</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorRed">#FA0224</color>
+    <color name="md_red_500">#F44336</color>
+
+    <color name="light_grey">#158E8C8C</color>
+    <color name="darkGreen">#17988C</color>
+    <color name="colorGreenDark">#05570B</color>
+    <color name="colorGreen">#0EA119</color>
+    <color name="colorGreenLight">#15EA25</color>
+
+</resources>

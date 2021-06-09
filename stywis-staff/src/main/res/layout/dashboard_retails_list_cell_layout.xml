@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        app:contentView="@id/content_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rightMenuView="@id/right_layout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp">
+
+            <ImageView
+                android:id="@+id/drag_image_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:padding="6dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/dish_image_view"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/drag_image_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dish_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="Yamini Gupta"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintStart_toEndOf="@+id/dish_image_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dish_description_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:singleLine="true"
+                android:text="Sharing at 10:30 AM"
+                android:textColor="@color/grey"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dish_image_view"
+                app:layout_constraintTop_toBottomOf="@+id/dish_name_text_view" />
+
+            <TextView
+                android:id="@+id/section1_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/circular_rounded_corner_grey_background_with_grey_stroke"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:paddingStart="10dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="1dp"
+                android:textColor="@color/random_grey_1"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/dish_image_view"
+                app:layout_constraintTop_toBottomOf="@+id/dish_description_text_view"
+                tools:text="Evening Snacks" />
+
+            <TextView
+                android:id="@+id/section2_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/circular_rounded_corner_grey_background_with_grey_stroke"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:paddingStart="10dp"
+                android:paddingTop="1dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="1dp"
+                android:text="Section 2"
+                android:textColor="@color/random_grey_1"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@+id/section1_text_view"
+                app:layout_constraintTop_toBottomOf="@+id/dish_description_text_view"
+                tools:text="Food Menu" />
+
+            <TextView
+                android:id="@+id/original_price_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/discount_price_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="Products"
+                android:textColor="@color/colorBlack"
+                app:layout_constraintEnd_toStartOf="@+id/original_price_text_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="1dp"
+                android:padding="5dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/discount_price_text_view"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/dotted_line"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/right_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorDashboardToolbar">
+
+            <ImageView
+                android:id="@+id/edit_image_view"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/delete_image_view"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_toEndOf="@id/edit_image_view"
+                android:background="@drawable/ic_delete"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+    </com.guanaj.easyswipemenulibrary.EasySwipeMenuLayout>
+
+</layout>

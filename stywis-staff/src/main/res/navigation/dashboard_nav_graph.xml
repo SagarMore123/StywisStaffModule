@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/DashboardFragment">
+
+    <fragment
+        android:id="@+id/DashboardFragment"
+        android:name="com.astrika.stywis_staff.view.dashboard.fragments.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/MenuFragment"
+        android:name="com.astrika.stywis_staff.view.menus.fragments.MenuFragment"
+        android:label="MenuFragment">
+        <action
+            android:id="@+id/action_MenuFragment_to_dishAvailabilityFragment"
+            app:destination="@id/dishAvailabilityFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/dishAvailabilityFragment"
+        android:name="com.astrika.stywis_staff.view.menus.fragments.DishAvailabilityFragment"
+        android:label="DishAvailabilityFragment">
+        <action
+            android:id="@+id/action_dishAvailabilityFragment_to_MenuFragment"
+            app:destination="@id/MenuFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.astrika.stywis_staff.view.profile.fragments.ProfileFragment"
+        android:label="User Profile"
+        tools:layout="@layout/fragment_visitor_profile" />
+
+    <fragment
+        android:id="@+id/DashboardSubFragment"
+        android:name="com.astrika.stywis_staff.view.dashboard.fragments.DashboardSubFragment"
+        android:label="subDashboardFragment"
+        tools:layout="@layout/fragment_dashboard_sub">
+        <action
+            android:id="@+id/action_DashboardSubFragment_to_AwaitingCheckInsFragment"
+            app:destination="@id/AwaitingCheckInsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/AwaitingCheckInsFragment"
+        android:name="com.astrika.stywis_staff.view.dashboard.fragments.AwaitingCheckInsFragment"
+        android:label="awaitingCheckInsFragment"
+        tools:layout="@layout/fragment_awaiting_check_ins">
+        <action
+            android:id="@+id/action_AwaitingCheckInsFragment_to_DashboardSubFragment"
+            app:destination="@id/DashboardSubFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/billGenerationFragment"
+        android:name="com.astrika.stywis_staff.view.BillGenerationFragment"
+        android:label="fragment_bill_generation"
+        tools:layout="@layout/fragment_bill_generation">
+        <action
+            android:id="@+id/action_billGenerationFragment_to_DashboardFragment"
+            app:destination="@id/DashboardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applicableDiscountFragment"
+        android:name="com.astrika.stywis_staff.view.dashboard.fragments.ApplicableDiscountFragment"
+        android:label="fragment_applicable_discount"
+        tools:layout="@layout/fragment_applicable_discount" />
+
+    <fragment
+        android:id="@+id/stockFragment"
+        android:name="com.astrika.stywis_staff.view.stockmanagement.fragments.StockFragment"
+        android:label="fragment_stock"
+        tools:layout="@layout/fragment_stock" />
+
+
+</navigation>

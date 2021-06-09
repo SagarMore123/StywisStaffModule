@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.profile.viewmodels.ProfileViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="Email Id"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.userDTO.emailAddress}"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Room 151,Ground Floor" />
+
+                </TableRow>
+
+                <TableRow android:layout_marginTop="10dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="Mobile"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{`+`+viewModel.userDTO.mobileCCode + `  `+ viewModel.userDTO.mobileNo}"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Room 151,Ground Floor" />
+
+                </TableRow>
+
+                <!--
+                                <TableRow android:layout_marginTop="10dp">
+
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Birth Date"
+                                        android:textColor="@color/colorBlack" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/air_bnb_cereal_book"
+                                        android:text="@{viewModel.userDTO.userDateOfBirth.empty ? `&#45;&#45;` : viewModel.userDTO.userDateOfBirth}"
+                                        android:textColor="@color/colorBlack"
+                                        tools:text="Room 151,Ground Floor" />
+
+                                </TableRow>
+                -->
+
+                <TableRow android:layout_marginTop="10dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="Designation"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.userDTO.designation.empty ? `--` : viewModel.userDTO.designation}"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Room 151,Ground Floor" />
+
+                </TableRow>
+
+                <TableRow android:layout_marginTop="10dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="Experience"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.userDTO.totalExperience.empty ? `--` : viewModel.userDTO.totalExperience}"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Room 151,Ground Floor" />
+
+                </TableRow>
+
+                <TableRow android:layout_marginTop="10dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="30dp"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="Working Since"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.userDTO.workingSince.empty ? `--` : viewModel.userDTO.workingSince}"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Room 151,Ground Floor" />
+
+                </TableRow>
+
+
+                <TableRow android:layout_marginTop="10dp">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="About"
+                        android:textColor="@color/colorBlack" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:text="@{viewModel.userDTO.bio.empty ? `--` : viewModel.userDTO.bio}"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Room 151,Ground Floor" />
+
+                </TableRow>
+
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

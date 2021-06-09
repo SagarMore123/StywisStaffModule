@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="checkInDTO"
+            type="com.astrika.stywis_staff.models.CheckInDTO" />
+
+        <variable
+            name="utils"
+            type="com.astrika.stywis_staff.utils.Utils.Companion" />
+
+    </data>
+    <!--
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/circular_rounded_corner_white_background_with_accent_stroke"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_person_placeholder"
+                    app:civ_border_color="@color/colorPrimary"
+                    app:civ_border_width="1dp" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="@{checkInDTO.userName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"
+                        tools:text="Rozy Gomes " />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/air_bnb_cereal_book"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@{`Req. At : ` + checkInDTO.requestedTime}"
+                            app:drawableStartCompat="@drawable/ic_time_20dp"
+                            app:drawableTint="@color/colorPrimary"
+                            tools:text="Req. At : 00:00 PM" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/air_bnb_cereal_book"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@{`Last Req. At : ` + checkInDTO.lastRequestedTime}"
+                            app:drawableStartCompat="@drawable/ic_time_20dp"
+                            app:drawableTint="@color/colorPrimary"
+                            tools:text="Last Req. At : 00:00 PM" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:drawablePadding="5dp"
+                            android:fontFamily="@font/air_bnb_cereal_book"
+                            android:gravity="center_vertical"
+                            android:singleLine="true"
+                            android:text="@{`Last Req. At : ` + checkInDTO.noOfSameRequest}"
+                            app:drawableStartCompat="@drawable/ic_baseline_redo_20dp"
+                            app:drawableTint="@color/colorBlack"
+                            tools:text="No. Same Req. : 10" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorBlack" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:textColor="@color/colorBlack"
+                        tools:text="Table 10" />
+
+
+                    <Button
+                        android:id="@+id/done_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rectangular_corner_white_background_with_primary_stroke"
+                        android:fontFamily="@font/air_bnb_cereal_book"
+                        android:minHeight="35dp"
+                        android:text="Done ?"
+                        android:textAllCaps="false"
+                        android:textColor="@color/colorBlack" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    -->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:fontFamily="@font/air_bnb_cereal_book"
+            android:text="@{checkInDTO.lastRequestedTime.empty ? `00:00 AM`: checkInDTO.lastRequestedTime}"
+            android:textSize="12dp"
+            android:visibility="gone"
+            tools:text="05:31 PM" />
+
+        <TextView
+            android:id="@+id/serial_no_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/air_bnb_cereal_book"
+            tools:text="1." />
+
+        <TextView
+            android:id="@+id/request_type_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.2"
+            android:fontFamily="@font/air_bnb_cereal_medium"
+            tools:text="Server Request" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:text="@{checkInDTO.checkInTime.empty ? `00:00 AM`: utils.getDateFormattedTime(checkInDTO.checkInTime)}"
+                tools:text="05:40 PM" />
+
+            <TextView
+                android:id="@+id/timer_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:textColor="@color/colorGreen"
+                android:textSize="12dp"
+                tools:text="3 min" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/doneBtn"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="0.1"
+            android:background="@drawable/circular_rounded_corner_10dp_white_background_with_primary_stroke"
+            android:fontFamily="@font/air_bnb_cereal_book"
+            android:text="Done?"
+            android:textAllCaps="false"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+
+</layout>
+

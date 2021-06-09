@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dishDetails"
+            type="com.astrika.stywis_staff.models.menu.DishDetailsDTO" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="@{dishDetails.productName}"
+            tools:text="Prawns Fry" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.60"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/actual_price_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="@{`₹ ` + dishDetails.productOriPrice.toString()}"
+                tools:text="₹ 500" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toRightOf="@+id/actual_price_text_view"
+                android:text="@{`₹ ` + dishDetails.productDiscountPrice.toString()}"
+                tools:text="₹ 400" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="40dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/dish_availability_image_view"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/grey_background_with_grey_stroke"
+                android:padding="5dp"
+                app:tint="@color/colorRed" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</layout>

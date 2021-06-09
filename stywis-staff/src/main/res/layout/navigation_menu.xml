@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.astrika.stywis_staff.view.dashboard.viewmodels.DashboardViewModel" />
+
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingTop="10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profileImage"
+                    imageUrl="@{viewModel.profilePathObservableField}"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/ic_person_placeholder"
+                    app:civ_border_color="@color/colorWhite"
+                    app:civ_border_width="2dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/userName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="@{viewModel.firstName+` `+viewModel.lastName+`!`}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20dp"
+                        tools:text="Hi, Vaibhav" />
+
+                    <TextView
+                        android:id="@+id/mobileNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/air_bnb_cereal_medium"
+                        android:text="@{viewModel.outletName.empty ? viewModel.mobileNumber : `Welcome to ` + viewModel.outletName}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16dp"
+                        tools:text="Mobile Number" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/close_drawer_img"
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:visibility="gone"
+                    app:tint="@color/colorWhite" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/colorWhite"
+                android:visibility="invisible" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashboardMenuRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:nestedScrollingEnabled="true"
+                android:overScrollMode="never"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+            <!--
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:id="@+id/dashboardSummaryLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_dashboard_summary" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Dashboard Summary"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/infoManagement"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_information_management" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Information Management"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+
+                                <ImageView
+                                    android:id="@+id/infoMgmtDropdown"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="10dp"
+                                    android:src="@drawable/ic_arrow_up" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/infoManagementLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/basicInfoLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/basicInfoTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Basic Info"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/timingsInfoLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/timingsInfoTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Timings Info"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/communicationInfoLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/communicationInfoTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Communication Info"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/galleryInfoLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/galleryInfoTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Gallery Info"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/menuInfoLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/menuInfoTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Menu Info"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/menuConfiguration"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_menu_configuration" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Menu Configuration"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                                <ImageView
+                                    android:id="@+id/menuConfigurationDropdown"
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="10dp"
+                                    android:src="@drawable/ic_arrow_down" />
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/menu_configuration_options"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:id="@+id/menu_category_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/menuCategoryTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Menu Category"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/menu_section_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/menuSectionTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Menu Section"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/dish_category_layout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/dishesTitleTxt"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Dishes"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:id="@+id/menuTypeLayout"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Menu Type"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/menuCategoryLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Menu Category"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/dishesLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:background="@color/random_grey"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginStart="10dp"
+                                        android:src="@drawable/ic_arrow_forward_black_24dp" />
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="10dp"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/air_bnb_cereal_medium"
+                                        android:text="Dishes"
+                                        android:textColor="@color/colorBlack"
+                                        android:textSize="16dp" />
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/teamManagementLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_team_management" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Team Management"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/discount_management_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_discount_management" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Discount Management"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/tableManagementLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_table_management" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Table Management"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/subAdminManagementLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_table_management" />
+
+                                <TextView
+                                    android:id="@+id/subAdminManagementTitleTxt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Sub Admin Management"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/checkInLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_check_in" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="Check In"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/staff_management_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginBottom="2dp"
+                                android:background="@color/colorWhite"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="10dp"
+                                    android:src="@drawable/ic_check_in" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/air_bnb_cereal_medium"
+                                    android:text="@string/staff_management"
+                                    android:textColor="@color/colorDashboardToolbar"
+                                    android:textSize="16dp" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+            -->
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/colorWhite">
+
+            <!-- This Version text is hardcoded for having space at end of the sentence
+             otherwise the last character is trimmed out-->
+            <TextView
+                android:id="@+id/version_name_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/air_bnb_cereal_book"
+                android:gravity="end"
+                android:textColor="@color/colorBlack"
+                android:textSize="10dp"
+                android:textStyle="italic"
+                tools:text="Version 1.0.0 " />
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</layout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.astrika.stywis_staff.view.login.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_verifyOtpFragment"
+            app:destination="@id/verifyOtpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_loginFragmentWithPassword"
+            app:destination="@id/loginFragmentWithPassword" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:name="com.astrika.stywis_staff.view.login.fragments.VerifyOtpFragment"
+        android:label="fragment_verify_otp"
+        tools:layout="@layout/fragment_verify_otp">
+        <action
+            android:id="@+id/action_verifyOtpFragment_to_setPasswordFragment"
+            app:destination="@id/setPasswordFragment" />
+        <action
+            android:id="@+id/action_verifyOtpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setPasswordFragment"
+        android:name="com.astrika.stywis_staff.view.login.fragments.SetPasswordFragment"
+        android:label="fragment_set_password"
+        tools:layout="@layout/fragment_set_password">
+        <action
+            android:id="@+id/action_setPasswordFragment_to_loginFragmentWithPassword"
+            app:destination="@id/loginFragmentWithPassword" />
+        <action
+            android:id="@+id/action_setPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragmentWithPassword"
+        android:name="com.astrika.stywis_staff.view.login.fragments.LoginFragmentWithPassword"
+        android:label="fragment_login_with_password"
+        tools:layout="@layout/fragment_login_with_password">
+        <action
+            android:id="@+id/action_loginFragmentWithPassword_to_forgotPassword"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragmentWithPassword_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.astrika.stywis_staff.view.login.fragments.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_setPasswordFragment"
+            app:destination="@id/setPasswordFragment" />
+        <action
+            android:id="@+id/action_forgotPasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>
