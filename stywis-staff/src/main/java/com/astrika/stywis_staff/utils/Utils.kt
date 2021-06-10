@@ -20,6 +20,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
+import com.astrika.stywis_staff.view.login.viewmodels.FirstTimeLoginViewModel
 import com.astrika.stywis_staff.master_controller.source.MasterRepository
 import com.astrika.stywis_staff.models.LoginDTO
 import com.astrika.stywis_staff.models.OrderBundleDTO
@@ -27,7 +28,6 @@ import com.astrika.stywis_staff.models.menu.DishDetailsDTO
 import com.astrika.stywis_staff.source.dashboard.DashboardRepository
 import com.astrika.stywis_staff.source.user.UserRepository
 import com.astrika.stywis_staff.view.dashboard.viewmodels.*
-import com.astrika.stywis_staff.view.login.viewmodels.FirstTimeLoginViewModel
 import com.astrika.stywis_staff.view.login.viewmodels.LoginViewModel
 import com.astrika.stywis_staff.view.login.viewmodels.SetPasswordViewModel
 import com.astrika.stywis_staff.view.login.viewmodels.VerifyOtpViewModel

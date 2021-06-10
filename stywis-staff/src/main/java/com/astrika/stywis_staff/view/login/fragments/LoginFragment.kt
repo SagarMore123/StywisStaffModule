@@ -9,13 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
+import com.astrika.stywis_staff.view.login.viewmodels.FirstTimeLoginViewModel
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.databinding.FragmentLoginBinding
 import com.astrika.stywis_staff.models.LoginResponseDTO
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.CustomProgressBar
 import com.astrika.stywis_staff.utils.Utils
-import com.astrika.stywis_staff.view.login.viewmodels.FirstTimeLoginViewModel
 
 /**
  * A simple [Fragment] subclass.

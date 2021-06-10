@@ -20,7 +20,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
-import com.astrika.stywis_staff.BuildConfig
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.DashboardDrawerAdapter
 import com.astrika.stywis_staff.adapters.DashboardSubMenuAdapter
@@ -56,7 +55,7 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_dashboard)
+//        setContentView(R.layout.activity_dashboard_staff)
 //        verifyStoragePermissions(this)
 //        setChildActivity(locationActivity)
         val sharedPreferences = Constants.getSharedPreferences(application)

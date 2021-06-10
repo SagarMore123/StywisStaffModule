@@ -104,7 +104,7 @@ class DashboardViewModel(
 
         val alreadyLoginPopUpLayoutBinding: AlreadyLoginPopupLayoutBinding =
             DataBindingUtil.inflate(
-                LayoutInflater.from(activity), R.layout.already_login_popup_layout, null, false
+                LayoutInflater.from(activity), R.layout.already_login_popup_layout_staff, null, false
             )
         val view: View = alreadyLoginPopUpLayoutBinding.root
         val alert =
