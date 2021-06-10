@@ -23,7 +23,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.DashboardDrawerAdapter
 import com.astrika.stywis_staff.adapters.DashboardSubMenuAdapter
-import com.astrika.stywis_staff.databinding.ActivityDashboardBinding
+import com.astrika.stywis_staff.databinding.ActivityDashboardStaffBinding
 import com.astrika.stywis_staff.master_controller.sync.MasterSyncIntentService
 import com.astrika.stywis_staff.models.DashboardDrawerDTO
 import com.astrika.stywis_staff.utils.Constants
@@ -37,7 +37,7 @@ import kotlinx.android.synthetic.main.app_bar_dashboard_staff.*
 class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClickListener,
     DashboardSubMenuAdapter.OnSubMenuItemClickListener, UpdateProfile {
 
-    lateinit var binding: ActivityDashboardBinding
+    lateinit var binding: ActivityDashboardStaffBinding
     lateinit var navController: NavController
     private var progressBar = CustomProgressBar()
 
@@ -60,7 +60,7 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
 //        setChildActivity(locationActivity)
         val sharedPreferences = Constants.getSharedPreferences(application)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard_staff)
         viewModel = Utils.obtainBaseObservable(
             this,
             DashboardViewModel::class.java,
