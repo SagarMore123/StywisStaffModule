@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.menu.PagerAdapter
-import com.astrika.stywis_staff.databinding.FragmentProfileBinding
+import com.astrika.stywis_staff.databinding.FragmentProfileStaffBinding
 import com.astrika.stywis_staff.utils.CustomProgressBar
 import com.astrika.stywis_staff.utils.Utils
 import com.astrika.stywis_staff.view.profile.UpdateProfile
@@ -21,7 +21,7 @@ import com.theartofdev.edmodo.cropper.CropImage
 
 class ProfileFragment : Fragment() {
 
-    lateinit var binding: FragmentProfileBinding
+    lateinit var binding: FragmentProfileStaffBinding
     lateinit var viewModel: ProfileViewModel
 
     lateinit var pagerAdapter: PagerAdapter
@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
     ): View? {
 
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile_staff, container, false)
         viewModel = Utils.obtainBaseObservable(
             requireActivity(),
             ProfileViewModel::class.java,

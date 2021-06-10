@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.astrika.stywis_staff.R
-import com.astrika.stywis_staff.databinding.FragmentProfileAboutPagerBinding
+import com.astrika.stywis_staff.databinding.FragmentProfileAboutPagerStaffBinding
 import com.astrika.stywis_staff.models.UserDTO
 import com.astrika.stywis_staff.utils.Utils
 import com.astrika.stywis_staff.view.profile.viewmodels.ProfileViewModel
@@ -23,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
 class ProfileAboutPagerFragment(private val userDTO: UserDTO) : Fragment() {
 
 
-    lateinit var binding: FragmentProfileAboutPagerBinding
+    lateinit var binding: FragmentProfileAboutPagerStaffBinding
     lateinit var viewModel: ProfileViewModel
 
     private var param1: String? = null
@@ -45,7 +45,7 @@ class ProfileAboutPagerFragment(private val userDTO: UserDTO) : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_profile_about_pager,
+            R.layout.fragment_profile_about_pager_staff,
             container,
             false
         )

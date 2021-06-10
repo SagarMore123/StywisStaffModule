@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.astrika.stywis_staff.databinding.CustomizationOptionsRowCellLayoutBinding
+import com.astrika.stywis_staff.databinding.CustomizationOptionsRowCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.CustomizationOptionDTOGroupRow
 
 class CustomizationOptionsRowAdapter(
@@ -19,7 +19,7 @@ class CustomizationOptionsRowAdapter(
         }
 
 
-    class ViewHolder(val binding: CustomizationOptionsRowCellLayoutBinding) :
+    class ViewHolder(val binding: CustomizationOptionsRowCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
@@ -46,7 +46,7 @@ class CustomizationOptionsRowAdapter(
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    CustomizationOptionsRowCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    CustomizationOptionsRowCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }

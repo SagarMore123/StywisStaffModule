@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.astrika.stywis_staff.R
-import com.astrika.stywis_staff.databinding.DashboardDrawerCellLayoutBinding
+import com.astrika.stywis_staff.databinding.DashboardDrawerCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.DashboardDrawerDTO
 import com.astrika.stywis_staff.utils.Constants
 
@@ -23,7 +23,7 @@ class DashboardDrawerAdapter(
         notifyDataSetChanged()
     }
 
-    class DashboardDrawerViewHolder(val binding: DashboardDrawerCellLayoutBinding) :
+    class DashboardDrawerViewHolder(val binding: DashboardDrawerCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
@@ -71,7 +71,7 @@ class DashboardDrawerAdapter(
             fun from(parent: ViewGroup): DashboardDrawerViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    DashboardDrawerCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    DashboardDrawerCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return DashboardDrawerViewHolder(binding)
             }
         }

@@ -83,7 +83,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
 
-        <include layout="@layout/content_dashboard" />
+        <include layout="@layout/content_dashboard_staff" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

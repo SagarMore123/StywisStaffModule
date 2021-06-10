@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.DashboardPagerAdapter
-import com.astrika.stywis_staff.databinding.FragmentDashboardBinding
+import com.astrika.stywis_staff.databinding.FragmentDashboardStaffBinding
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.Utils
 import com.astrika.stywis_staff.view.dashboard.viewmodels.DashboardViewModel
@@ -20,7 +20,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class DashboardFragment : Fragment() {
 
-    private lateinit var binding: FragmentDashboardBinding
+    private lateinit var binding: FragmentDashboardStaffBinding
     private lateinit var viewModel: DashboardViewModel
     lateinit var mContext: Context
     lateinit var namesArray: Array<String>
@@ -35,7 +35,7 @@ class DashboardFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_dashboard,
+            R.layout.fragment_dashboard_staff,
             container,
             false
         )

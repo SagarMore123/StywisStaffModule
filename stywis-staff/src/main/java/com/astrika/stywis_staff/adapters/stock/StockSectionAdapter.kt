@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.astrika.stywis_staff.R
-import com.astrika.stywis_staff.databinding.MenuSectionCellLayoutBinding
+import com.astrika.stywis_staff.databinding.MenuSectionCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.menu.MenuSectionWithDishDetails
 
 
@@ -22,7 +22,7 @@ class StockSectionAdapter(
         notifyDataSetChanged()
     }
 
-    class MenuSectionViewHolder(private val binding: MenuSectionCellLayoutBinding) :
+    class MenuSectionViewHolder(private val binding: MenuSectionCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
@@ -75,7 +75,7 @@ class StockSectionAdapter(
             fun from(parent: ViewGroup): MenuSectionViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    MenuSectionCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    MenuSectionCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return MenuSectionViewHolder(binding)
             }
         }

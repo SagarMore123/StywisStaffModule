@@ -15,7 +15,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.astrika.stywis_staff.R
-import com.astrika.stywis_staff.databinding.EditPasswordPopupLayoutBinding
+import com.astrika.stywis_staff.databinding.EditPasswordPopupLayoutStaffBinding
 import com.astrika.stywis_staff.master_controller.source.MasterRepository
 import com.astrika.stywis_staff.models.*
 import com.astrika.stywis_staff.network.network_utils.IDataSourceCallback
@@ -107,9 +107,9 @@ class ProfileViewModel(
 
     fun onEditClick() {
 
-        val binding: EditPasswordPopupLayoutBinding =
+        val binding: EditPasswordPopupLayoutStaffBinding =
             DataBindingUtil.inflate(
-                LayoutInflater.from(activity), R.layout.edit_password_popup_layout, null, false
+                LayoutInflater.from(activity), R.layout.edit_password_popup_layout_staff, null, false
             )
         binding.viewModel = this
         val view: View = binding.root

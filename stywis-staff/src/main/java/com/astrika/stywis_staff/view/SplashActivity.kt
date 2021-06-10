@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startImmediateSync(this)
-        setContentView(R.layout.activity_splash)
+        setContentView(R.layout.activity_splash_staff)
         sharedPreferences = Constants.getSharedPreferences(this)
 
         isFirstTime = Constants.getIsFirstTime(this@SplashActivity)

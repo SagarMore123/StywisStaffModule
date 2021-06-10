@@ -21,7 +21,7 @@
 
         <include
             android:id="@+id/content"
-            layout="@layout/app_bar_dashboard"
+            layout="@layout/app_bar_dashboard_staff"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:viewModel="@{viewModel}" />
@@ -35,7 +35,7 @@
 
             <include
                 android:id="@+id/navigationMenu"
-                layout="@layout/navigation_menu"
+                layout="@layout/navigation_menu_staff"
                 app:viewModel="@{viewModel}" />
 
         </com.google.android.material.navigation.NavigationView>

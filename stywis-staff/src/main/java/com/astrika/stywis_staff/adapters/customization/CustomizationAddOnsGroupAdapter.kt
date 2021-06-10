@@ -6,7 +6,7 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.astrika.stywis_staff.databinding.CustomizationAddonsGroupCellLayoutBinding
+import com.astrika.stywis_staff.databinding.CustomizationAddonsGroupCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.CustomizationAddOnDTO
 import com.astrika.stywis_staff.models.CustomizationAddOnDTOGroup
 import com.astrika.stywis_staff.models.CustomizationAddOnDTOGroupRow
@@ -63,7 +63,7 @@ class CustomizationAddOnsGroupAdapter(
     }
 
 
-    class ViewHolder(val binding: CustomizationAddonsGroupCellLayoutBinding) :
+    class ViewHolder(val binding: CustomizationAddonsGroupCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(
             binding.root
         ) {
@@ -146,7 +146,7 @@ class CustomizationAddOnsGroupAdapter(
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    CustomizationAddonsGroupCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    CustomizationAddonsGroupCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }

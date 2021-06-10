@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.astrika.stywis_staff.databinding.DashboardDrawerSubCellLayoutBinding
+import com.astrika.stywis_staff.databinding.DashboardDrawerSubCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.DashboardDrawerDTO
 
 class DashboardSubMenuAdapter(
@@ -32,7 +32,7 @@ class DashboardSubMenuAdapter(
         }
     }*/
 
-    class DashboardDrawerViewHolder(val binding: DashboardDrawerSubCellLayoutBinding) :
+    class DashboardDrawerViewHolder(val binding: DashboardDrawerSubCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
@@ -60,7 +60,7 @@ class DashboardSubMenuAdapter(
             fun from(parent: ViewGroup): DashboardDrawerViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    DashboardDrawerSubCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    DashboardDrawerSubCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return DashboardDrawerViewHolder(binding)
             }
         }

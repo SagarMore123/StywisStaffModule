@@ -9,7 +9,7 @@
         android:id="@+id/DashboardFragment"
         android:name="com.astrika.stywis_staff.view.dashboard.fragments.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard_staff" />
 
     <fragment
         android:id="@+id/MenuFragment"
@@ -39,7 +39,7 @@
         android:id="@+id/DashboardSubFragment"
         android:name="com.astrika.stywis_staff.view.dashboard.fragments.DashboardSubFragment"
         android:label="subDashboardFragment"
-        tools:layout="@layout/fragment_dashboard_sub">
+        tools:layout="@layout/fragment_dashboard_sub_staff">
         <action
             android:id="@+id/action_DashboardSubFragment_to_AwaitingCheckInsFragment"
             app:destination="@id/AwaitingCheckInsFragment" />

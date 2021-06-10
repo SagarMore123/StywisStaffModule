@@ -14,7 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import com.astrika.stywis_staff.R
-import com.astrika.stywis_staff.databinding.AlreadyLoginPopupLayoutBinding
+import com.astrika.stywis_staff.databinding.AlreadyLoginPopupLayoutStaffBinding
 import com.astrika.stywis_staff.models.LoginDTO
 import com.astrika.stywis_staff.models.LoginResponseDTO
 import com.astrika.stywis_staff.network.network_utils.IDataSourceCallback
@@ -141,11 +141,11 @@ class FirstTimeLoginViewModel : GenericBaseObservable {
     }
 
     fun showAlreadyLoginDialog() {
-        val alreadyLoginPopUpLayoutBinding: AlreadyLoginPopupLayoutBinding =
+        val alreadyLoginPopUpLayoutStaffBinding: AlreadyLoginPopupLayoutStaffBinding =
             DataBindingUtil.inflate(
-                LayoutInflater.from(activity), R.layout.already_login_popup_layout, null, false
+                LayoutInflater.from(activity), R.layout.already_login_popup_layout_staff, null, false
             )
-        val view: View = alreadyLoginPopUpLayoutBinding.root
+        val view: View = alreadyLoginPopUpLayoutStaffBinding.root
         val alert =
             AlertDialog.Builder(activity)
         // this is set the view from XML inside AlertDialog
@@ -153,8 +153,8 @@ class FirstTimeLoginViewModel : GenericBaseObservable {
         // disallow cancel of AlertDialog on click of back button and outside touch
         alert.setCancelable(false)
         val dialog = alert.create()
-        alreadyLoginPopUpLayoutBinding.yesBtn.setOnClickListener(View.OnClickListener { dialog.dismiss() })
-        alreadyLoginPopUpLayoutBinding.noBtn.setOnClickListener(View.OnClickListener {
+        alreadyLoginPopUpLayoutStaffBinding.yesBtn.setOnClickListener(View.OnClickListener { dialog.dismiss() })
+        alreadyLoginPopUpLayoutStaffBinding.noBtn.setOnClickListener(View.OnClickListener {
             dialog.dismiss()
             Constants.clearSharedPrefs(context)
             activity.finishAffinity()

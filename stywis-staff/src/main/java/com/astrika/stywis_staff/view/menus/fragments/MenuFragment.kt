@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.menu.PagerAdapter
-import com.astrika.stywis_staff.databinding.FragmentMenuBinding
+import com.astrika.stywis_staff.databinding.FragmentMenuStaffBinding
 import com.astrika.stywis_staff.models.menu.DishDetailsDTO
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.CustomProgressBar
@@ -23,7 +23,7 @@ import com.google.android.material.tabs.TabLayout
 
 class MenuFragment : Fragment() {
 
-    lateinit var binding: FragmentMenuBinding
+    lateinit var binding: FragmentMenuStaffBinding
     lateinit var viewModel: MenuViewModel
 
     lateinit var pagerAdapter: PagerAdapter
@@ -40,7 +40,7 @@ class MenuFragment : Fragment() {
 
 //        binding = DataBindingUtil.findBinding<>()
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_menu,
+            inflater, R.layout.fragment_menu_staff,
             container,
             false
         )

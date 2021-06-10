@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.astrika.stywis_staff.databinding.DishCellLayoutBinding
+import com.astrika.stywis_staff.databinding.DishCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.menu.DishDetailsDTO
 import java.math.BigDecimal
 
@@ -43,7 +43,7 @@ class MenuDishAdapter(
     }
 
 
-    class MenuDishViewHolder(private val binding: DishCellLayoutBinding) :
+    class MenuDishViewHolder(private val binding: DishCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
@@ -258,7 +258,7 @@ class MenuDishAdapter(
             fun from(parent: ViewGroup): MenuDishViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    DishCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    DishCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return MenuDishViewHolder(binding)
             }
         }

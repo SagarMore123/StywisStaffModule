@@ -9,13 +9,13 @@ import com.astrika.stywis_staff.master_controller.sync.SyncData
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.SnackbarUtils.showSnackbar
 import com.astrika.stywis_staff.view.dashboard.DashboardActivity
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login_staff.*
 
 class UserLoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_login_staff)
 
 
         val bundle = intent.extras

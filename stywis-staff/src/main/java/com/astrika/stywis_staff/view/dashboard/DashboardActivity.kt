@@ -31,7 +31,7 @@ import com.astrika.stywis_staff.utils.CustomProgressBar
 import com.astrika.stywis_staff.utils.Utils
 import com.astrika.stywis_staff.view.dashboard.viewmodels.DashboardViewModel
 import com.astrika.stywis_staff.view.profile.UpdateProfile
-import kotlinx.android.synthetic.main.app_bar_dashboard.*
+import kotlinx.android.synthetic.main.app_bar_dashboard_staff.*
 
 
 class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClickListener,

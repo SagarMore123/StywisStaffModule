@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.CheckInAdapter
 import com.astrika.stywis_staff.adapters.ServerCallsAdapter
-import com.astrika.stywis_staff.databinding.FragmentDashboardSubBinding
+import com.astrika.stywis_staff.databinding.FragmentDashboardSubStaffBinding
 import com.astrika.stywis_staff.models.CheckInDTO
 import com.astrika.stywis_staff.models.OrderBundleDTO
 import com.astrika.stywis_staff.utils.Constants
@@ -28,7 +28,7 @@ import com.astrika.stywis_staff.view.menus.OrderViewActivity
 class DashboardSubFragment : Fragment(), CheckInAdapter.OnItemClickListener,
     ServerCallsAdapter.OnDoneClickListener, BottomSheetCheckInDialog.BottomSheetDialogInterface {
 
-    private lateinit var binding: FragmentDashboardSubBinding
+    private lateinit var binding: FragmentDashboardSubStaffBinding
     lateinit var viewModel: DashboardSubViewModel
     lateinit var dashboardViewModel: DashboardViewModel
     var position = -1
@@ -47,7 +47,7 @@ class DashboardSubFragment : Fragment(), CheckInAdapter.OnItemClickListener,
         }
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_dashboard_sub,
+            R.layout.fragment_dashboard_sub_staff,
             container,
             false
         )

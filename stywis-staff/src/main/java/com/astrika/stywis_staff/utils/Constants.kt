@@ -18,7 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.MutableLiveData
 import com.astrika.stywis_staff.R
-import com.astrika.stywis_staff.databinding.AlreadyLoginPopupLayoutBinding
+import com.astrika.stywis_staff.databinding.AlreadyLoginPopupLayoutStaffBinding
 import com.astrika.stywis_staff.models.CommonListingDTO
 import com.astrika.stywis_staff.models.CommonSearchDTO
 import com.astrika.stywis_staff.models.CommonSortDTO
@@ -462,11 +462,11 @@ class Constants {
 
 
         fun showCommonDialog(activity: Activity, isYes: MutableLiveData<Boolean>, message: String) {
-            val alreadyLoginPopUpLayoutBinding: AlreadyLoginPopupLayoutBinding =
+            val alreadyLoginPopUpLayoutStaffBinding: AlreadyLoginPopupLayoutStaffBinding =
                 DataBindingUtil.inflate(
-                    LayoutInflater.from(activity), R.layout.already_login_popup_layout, null, false
+                    LayoutInflater.from(activity), R.layout.already_login_popup_layout_staff, null, false
                 )
-            val view: View = alreadyLoginPopUpLayoutBinding.root
+            val view: View = alreadyLoginPopUpLayoutStaffBinding.root
             val alert =
                 AlertDialog.Builder(activity)
             // this is set the view from XML inside AlertDialog
@@ -474,12 +474,12 @@ class Constants {
             // disallow cancel of AlertDialog on click of back button and outside touch
             alert.setCancelable(false)
             val dialog = alert.create()
-            alreadyLoginPopUpLayoutBinding.titleDescription.text = message
-            alreadyLoginPopUpLayoutBinding.yesBtn.setOnClickListener {
+            alreadyLoginPopUpLayoutStaffBinding.titleDescription.text = message
+            alreadyLoginPopUpLayoutStaffBinding.yesBtn.setOnClickListener {
                 isYes.value = true
                 dialog.dismiss()
             }
-            alreadyLoginPopUpLayoutBinding.noBtn.setOnClickListener {
+            alreadyLoginPopUpLayoutStaffBinding.noBtn.setOnClickListener {
                 dialog.dismiss()
             }
             dialog.show()

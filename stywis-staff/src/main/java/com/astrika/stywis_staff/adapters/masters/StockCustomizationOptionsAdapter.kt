@@ -3,7 +3,7 @@ package com.astrika.stywis_staff.adapters.masters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.astrika.stywis_staff.databinding.AutocompleteTextItemCellLayoutBinding
+import com.astrika.stywis_staff.databinding.AutocompleteTextItemCellLayoutStaffBinding
 import com.astrika.stywis_staff.models.stock.StockCustomizationMasterDTO
 
 class StockCustomizationOptionsAdapter(
@@ -33,7 +33,7 @@ class StockCustomizationOptionsAdapter(
         holder.bind(position, item, clickListener)
     }
 
-    class ViewHolder(private val binding: AutocompleteTextItemCellLayoutBinding) :
+    class ViewHolder(private val binding: AutocompleteTextItemCellLayoutStaffBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
@@ -54,7 +54,7 @@ class StockCustomizationOptionsAdapter(
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding =
-                    AutocompleteTextItemCellLayoutBinding.inflate(layoutInflater, parent, false)
+                    AutocompleteTextItemCellLayoutStaffBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(
                     binding
                 )

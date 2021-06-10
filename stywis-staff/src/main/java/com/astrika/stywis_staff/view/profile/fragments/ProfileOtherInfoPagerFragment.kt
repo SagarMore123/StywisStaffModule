@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.StaffTimingsAdapter
-import com.astrika.stywis_staff.databinding.FragmentProfileOtherInfoPagerBinding
+import com.astrika.stywis_staff.databinding.FragmentProfileOtherInfoPagerStaffBinding
 import com.astrika.stywis_staff.models.UserDTO
 import com.astrika.stywis_staff.utils.Utils
 import com.astrika.stywis_staff.view.profile.viewmodels.ProfileViewModel
@@ -25,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
 class ProfileOtherInfoPagerFragment(private val userDTO: UserDTO) : Fragment() {
 
 
-    lateinit var binding: FragmentProfileOtherInfoPagerBinding
+    lateinit var binding: FragmentProfileOtherInfoPagerStaffBinding
     lateinit var staffTimingsAdapter: StaffTimingsAdapter
     lateinit var viewModel: ProfileViewModel
     private var param1: String? = null
@@ -47,7 +47,7 @@ class ProfileOtherInfoPagerFragment(private val userDTO: UserDTO) : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_profile_other_info_pager,
+            R.layout.fragment_profile_other_info_pager_staff,
             container,
             false
         )

@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.menu.MenuDishAdapter
 import com.astrika.stywis_staff.adapters.menu.MenuSectionAdapter
-import com.astrika.stywis_staff.databinding.FragmentMenuPagerBinding
+import com.astrika.stywis_staff.databinding.FragmentMenuPagerStaffBinding
 import com.astrika.stywis_staff.models.menu.DishDetailsDTO
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.Utils
@@ -24,7 +24,7 @@ class MenuPagerFragment(
 ) : Fragment(), MenuDishAdapter.OnDishClickListener,
     CustomizationBottomSheetDialog.UpdateProductInterface {
 
-    lateinit var binding: FragmentMenuPagerBinding
+    lateinit var binding: FragmentMenuPagerStaffBinding
     lateinit var viewModel: MenuPagerViewModel
 
     lateinit var menuSectionAdapter: MenuSectionAdapter
@@ -50,8 +50,8 @@ class MenuPagerFragment(
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_menu_pager, container, false)
 
-        binding = DataBindingUtil.inflate<FragmentMenuPagerBinding>(
-            inflater, R.layout.fragment_menu_pager,
+        binding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_menu_pager_staff,
             container,
             false
         )
