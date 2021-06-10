@@ -52,6 +52,7 @@ class UserDetailsDTO : Serializable {
     var mobileCode: String? = null
     var mobileNo: String? = ""
     var emailAddress: String? = ""
+    var isAddedByStaff = true
     var profileImage: ImageDTO? = null
     var sourceId = Constants.SOURCE
     val productId = Constants.PRODUCT_ID_VALUE

@@ -597,6 +597,17 @@ class Utils {
             return gSon.toJson(dto)
         }
 
+        inline fun <reified T> getGenericData(value: String?): T? {
+            val dto = object : TypeToken<T?>() {}.type
+            return Gson().fromJson<T>(value, dto)
+        }
+
+        fun <T> setGenericData(data: T?): String? {
+            val gSon = Gson()
+            return gSon.toJson(data)
+        }
+
+
         fun getOrderBundleDTO(value: String?): OrderBundleDTO? {
             val dto = object : TypeToken<OrderBundleDTO?>() {}.type
             return Gson().fromJson<OrderBundleDTO>(value, dto)

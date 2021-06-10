@@ -26,6 +26,7 @@ import com.astrika.stywis_staff.adapters.DashboardSubMenuAdapter
 import com.astrika.stywis_staff.databinding.ActivityDashboardStaffBinding
 import com.astrika.stywis_staff.master_controller.sync.MasterSyncIntentService
 import com.astrika.stywis_staff.models.DashboardDrawerDTO
+import com.astrika.stywis_staff.models.UserDTO
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.CustomProgressBar
 import com.astrika.stywis_staff.utils.Utils
@@ -58,6 +59,7 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
 //        setContentView(R.layout.activity_dashboard_staff)
 //        verifyStoragePermissions(this)
 //        setChildActivity(locationActivity)
+
         val sharedPreferences = Constants.getSharedPreferences(application)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard_staff)
@@ -69,6 +71,34 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
         )!!
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        val s = intent.getStringExtra("Toast")
+        if (!s.isNullOrBlank()) {
+            Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+        }
+
+        val bundle = intent.extras
+
+        if (bundle != null) {
+
+            if (bundle.containsKey("Name")){
+                Toast.makeText(this, bundle.getString("Name"), Toast.LENGTH_LONG).show()
+            }
+
+            if (bundle.containsKey("userDTO")) {
+                val userDTO = bundle.getSerializable("userDTO") as UserDTO
+
+                userDTO.let {
+                    sharedPreferences.edit().putString(
+                        Constants.USER_DTO,
+                        Constants.encrypt(Utils.setGenericData(userDTO))
+                    ).apply()
+                }
+
+                Toast.makeText(this, userDTO.userLastName?:"", Toast.LENGTH_LONG).show()
+
+            }
+        }
 
 //        binding.navigationMenu.versionNameTxt.text = "Version " + BuildConfig.VERSION_NAME + " "
 

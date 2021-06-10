@@ -80,6 +80,7 @@ class Constants {
 
         const val LOG_OUT = "Logout"
         const val LOGIN_USER_ID = "LOGIN_IN_USER_ID"
+        const val USER_DTO = "USER_DTO"
         const val LOGIN_ID = "LOGIN_ID"
         const val EMAIL_ID = "EMAIL_ID"
         const val FIRST_NAME = "FIRST_NAME"
