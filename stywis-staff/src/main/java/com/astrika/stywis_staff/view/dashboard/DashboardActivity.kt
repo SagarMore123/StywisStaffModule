@@ -72,11 +72,6 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        val s = intent.getStringExtra("Toast")
-        if (!s.isNullOrBlank()) {
-            Toast.makeText(this, s, Toast.LENGTH_LONG).show()
-        }
-
         val bundle = intent.extras
 
         if (bundle != null) {
@@ -86,7 +81,9 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
             }
 
             if (bundle.containsKey("userDTO")) {
-                val userDTO = bundle.getSerializable("userDTO") as UserDTO
+
+                com.astrika.stywis_staff.network.NetworkController.accessToken
+                val userDTO:UserDTO = bundle.getSerializable("userDTO") as UserDTO
 
                 userDTO.let {
                     sharedPreferences.edit().putString(
