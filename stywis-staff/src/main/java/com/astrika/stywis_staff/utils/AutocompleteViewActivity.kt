@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import com.astrika.stywis_staff.R
 import com.astrika.stywis_staff.adapters.masters.StockCustomizationOptionsAdapter
 import com.astrika.stywis_staff.adapters.masters.VisitPurposeAdapter
-import com.astrika.stywis_staff.databinding.ActivityAutocompleteViewBinding
+import com.astrika.stywis_staff.databinding.ActivityAutocompleteViewStaffBinding
 import com.astrika.stywis_staff.models.VisitPurposeDTO
 import com.astrika.stywis_staff.models.stock.StockCustomizationMasterDTO
 
@@ -18,7 +18,7 @@ class AutocompleteViewActivity : AppCompatActivity(),
     VisitPurposeAdapter.OnItemClickListener,
     StockCustomizationOptionsAdapter.OnItemClickListener {
 
-    private lateinit var binding: ActivityAutocompleteViewBinding
+    private lateinit var binding: ActivityAutocompleteViewStaffBinding
     private lateinit var viewModel: AutocompleteViewModel
 
     //    private lateinit var corporatesMembershipOneDashboardAutocompleteListAdapter: CorporatesMembershipOneDashboardAutocompleteListAdapter
@@ -43,7 +43,7 @@ class AutocompleteViewActivity : AppCompatActivity(),
 
     private fun initBinding() {
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_autocomplete_view)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_autocomplete_view_staff)
         viewModel = Utils.obtainBaseObservable(
             this,
             AutocompleteViewModel::class.java,
