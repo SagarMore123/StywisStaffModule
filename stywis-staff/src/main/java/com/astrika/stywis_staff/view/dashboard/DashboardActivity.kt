@@ -27,6 +27,7 @@ import com.astrika.stywis_staff.databinding.ActivityDashboardStaffBinding
 import com.astrika.stywis_staff.master_controller.sync.MasterSyncIntentService
 import com.astrika.stywis_staff.models.DashboardDrawerDTO
 import com.astrika.stywis_staff.models.UserDTO
+import com.astrika.stywis_staff.network.NetworkController
 import com.astrika.stywis_staff.utils.Constants
 import com.astrika.stywis_staff.utils.CustomProgressBar
 import com.astrika.stywis_staff.utils.Utils
@@ -62,6 +63,94 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
 
         val sharedPreferences = Constants.getSharedPreferences(application)
 
+        val bundle = intent.extras
+
+        if (bundle != null) {
+
+            if (bundle.containsKey(Constants.FIRST_NAME)) {
+
+                bundle.getString(Constants.FIRST_NAME)?.let {
+                    sharedPreferences.edit().putString(
+                        Constants.FIRST_NAME,
+                        Constants.encrypt(it)
+                    ).apply()
+                }
+            }
+
+            if (bundle.containsKey(Constants.LAST_NAME)) {
+
+                bundle.getString(Constants.LAST_NAME)?.let {
+                    sharedPreferences.edit().putString(
+                        Constants.LAST_NAME,
+                        Constants.encrypt(it)
+                    ).apply()
+                }
+            }
+
+            if (bundle.containsKey(Constants.PROFILE_IMAGE_PATH)) {
+
+                bundle.getString(Constants.PROFILE_IMAGE_PATH)?.let {
+                    sharedPreferences.edit().putString(
+                        Constants.PROFILE_IMAGE_PATH,
+                        Constants.encrypt(it)
+                    ).apply()
+                }
+            }
+
+            if (bundle.containsKey(Constants.OUTLET_NAME)) {
+
+                bundle.getString(Constants.OUTLET_NAME)?.let {
+                    sharedPreferences.edit().putString(
+                        Constants.OUTLET_NAME,
+                        Constants.encrypt(it)
+                    ).apply()
+                }
+            }
+
+            if (bundle.containsKey(Constants.OUTLET_ID)) {
+
+                bundle.getLong(Constants.OUTLET_ID)?.let {
+
+                    NetworkController.outletId = it
+
+                    sharedPreferences.edit().putString(
+                        Constants.OUTLET_ID,
+                        Constants.encrypt(it.toString())
+                    ).apply()
+                }
+
+
+            }
+
+            if (bundle.containsKey(Constants.ACCESS_TOKEN)) {
+
+                bundle.getString(Constants.ACCESS_TOKEN)?.let {
+
+                    NetworkController.accessToken = it
+
+                    sharedPreferences.edit().putString(
+                        Constants.ACCESS_TOKEN,
+                        Constants.encrypt(it)
+                    ).apply()
+
+                    startImmediateSync(this)
+                }
+            }
+
+            if (bundle.containsKey(Constants.REFRESH_TOKEN)) {
+
+                bundle.getString(Constants.REFRESH_TOKEN)?.let {
+
+                    sharedPreferences.edit().putString(
+                        Constants.REFRESH_TOKEN,
+                        Constants.encrypt(it)
+                    ).apply()
+                }
+            }
+
+        }
+
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dashboard_staff)
         viewModel = Utils.obtainBaseObservable(
             this,
@@ -72,30 +161,6 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        val bundle = intent.extras
-
-        if (bundle != null) {
-
-            if (bundle.containsKey("Name")){
-                Toast.makeText(this, bundle.getString("Name"), Toast.LENGTH_LONG).show()
-            }
-
-            if (bundle.containsKey("userDTO")) {
-
-                com.astrika.stywis_staff.network.NetworkController.accessToken
-                val userDTO:UserDTO = bundle.getSerializable("userDTO") as UserDTO
-
-                userDTO.let {
-                    sharedPreferences.edit().putString(
-                        Constants.USER_DTO,
-                        Constants.encrypt(Utils.setGenericData(userDTO))
-                    ).apply()
-                }
-
-                Toast.makeText(this, userDTO.userLastName?:"", Toast.LENGTH_LONG).show()
-
-            }
-        }
 
 //        binding.navigationMenu.versionNameTxt.text = "Version " + BuildConfig.VERSION_NAME + " "
 
@@ -357,6 +422,7 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
 
     private fun startImmediateSync(context: Context) {
         val intentToSyncImmediately = Intent(context, MasterSyncIntentService::class.java)
+        intentToSyncImmediately.putExtra(Constants.IS_SPLASH_MASTER, false)
         context.startService(intentToSyncImmediately)
     }
 

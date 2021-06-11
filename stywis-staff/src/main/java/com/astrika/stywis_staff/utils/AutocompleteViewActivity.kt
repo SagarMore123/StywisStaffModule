@@ -93,7 +93,7 @@ class AutocompleteViewActivity : AppCompatActivity(),
         binding.stockCustomizationOptionsRecyclerView.adapter = stockCustomizationOptionsAdapter
 
         resultCode = intent.getIntExtra(Constants.SELECTED_DROPDOWN_ITEM_RESULT_CODE, 0)
-        productId = intent.getLongExtra(Constants.PRODUCT_ID, 0)
+        productId = intent.getLongExtra(Constants.STOCKS_PRODUCT_ID, 0)
 
 /*
         countryId = intent.getLongExtra(Constants.COUNTRY_ID_KEY, 0)

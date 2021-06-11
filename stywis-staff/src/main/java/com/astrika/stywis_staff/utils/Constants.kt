@@ -88,7 +88,7 @@ class Constants {
         const val MOBILE_NO = "MOBILE_NO"
         const val OUTLET_ID = "OUTLET_ID"
         const val OUTLET_NAME = "OUTLET_NAME"
-        const val PRODUCT_ID = "PRODUCT_ID"
+        const val STOCKS_PRODUCT_ID = "STOCKS_PRODUCT_ID"
         const val IS_FORGOT_PASS = "IS_FORGOT_PASS"
         const val LOGIN_RESPONSE = "LOGIN_RESPONSE"
         const val IS_SPLASH_MASTER = "IS_SPLASH_MASTER"
@@ -294,7 +294,7 @@ class Constants {
                 }
                 userDTO?.productId?.let {
                     sharedPreferences.edit().putString(
-                        PRODUCT_ID,
+                        STOCKS_PRODUCT_ID,
                         encrypt(userDTO.productId.toString())
                     ).apply()
                 }

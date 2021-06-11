@@ -136,7 +136,7 @@ class StockCustomizationBottomSheetDialog(
             val requestCode = Constants.STOCK_CUSTOMIZATION_OPTIONS_CODE
             val intent = Intent(requireActivity(), AutocompleteViewActivity::class.java)
             intent.putExtra(Constants.SELECTED_DROPDOWN_ITEM_RESULT_CODE, requestCode)
-            intent.putExtra(Constants.PRODUCT_ID, viewModel.productId)
+            intent.putExtra(Constants.STOCKS_PRODUCT_ID, viewModel.productId)
             this.startActivityForResult(intent, requestCode)
 
         })
