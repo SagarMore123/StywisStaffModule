@@ -121,6 +121,18 @@ class DashboardActivity : AppCompatActivity(), DashboardDrawerAdapter.OnItemClic
 
 
             }
+            if (bundle.containsKey(Constants.LOGIN_USER_ID)) {
+
+                bundle.getLong(Constants.LOGIN_USER_ID)?.let {
+
+                    sharedPreferences.edit().putString(
+                        Constants.LOGIN_USER_ID,
+                        Constants.encrypt(it.toString())
+                    ).apply()
+                }
+
+
+            }
 
             if (bundle.containsKey(Constants.ACCESS_TOKEN)) {
 
